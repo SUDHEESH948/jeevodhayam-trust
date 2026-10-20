@@ -342,7 +342,8 @@ h2 em { color: var(--forest); }
   .wefive-details { grid-template-columns: 1fr; gap: 0; margin-top: 55px; }
   .wefive-intro, .wefive-closing-inner { grid-template-columns: 1fr; gap: 28px; }
   .wefive-timeline { display: flex; height: auto; min-height: 0; flex-direction: column; gap: 42px; margin-top: 55px; padding: 0 0 0 35px; overflow: visible; }
-  .wefive-timeline::before { top: 26px; bottom: 26px; left: 6px; width: 1px; height: auto; background: repeating-linear-gradient(to bottom, rgba(24,61,50,.45) 0 3px, transparent 3px 10px); }
+  /* Preserve the journey's winding-road motif in the compact, vertical layout. */
+  .wefive-timeline::before { top: 26px; bottom: 26px; left: -14px; width: 44px; height: auto; background: url("data:image/svg+xml,%3Csvg viewBox='0 0 44 760' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22 0 C4 104 40 174 22 290 S4 462 22 565 S40 671 22 760' fill='none' stroke='%23e2e4e2' stroke-width='20' stroke-linecap='round'/%3E%3Cpath d='M22 0 C4 104 40 174 22 290 S4 462 22 565 S40 671 22 760' fill='none' stroke='%23f4f5f3' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat; }
   .wefive-timeline::after { display: none; }
   .wefive-milestone, .wefive-milestone:nth-child(1), .wefive-milestone:nth-child(2), .wefive-milestone:nth-child(3) { position: relative; top: auto; right: auto; bottom: auto; left: auto; width: 100%; }
   .wefive-milestone { align-items: flex-start; text-align: left; }
