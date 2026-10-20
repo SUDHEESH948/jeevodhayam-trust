@@ -306,7 +306,7 @@ h2 em { color: var(--forest); }
   .nav-support { justify-content: space-between; margin-top: 15px; }
   .hero { min-height: 760px; min-height: 100svh; align-items: flex-end; }
   /* Keep both women in the portrait crop; desktop retains its wider centered framing. */
-  .hero-image .cover-image { object-position: 74% center; }
+  .hero-image .cover-image { object-position: 82% center; }
   .hero-shade { background: linear-gradient(90deg, rgba(13,35,29,.68), rgba(13,35,29,.2)), linear-gradient(0deg, rgba(11,31,26,.74), rgba(11,31,26,.04) 83%); }
   .hero-content { padding-top: 140px; padding-bottom: 130px; }
   .hero h1 { font-size: clamp(38px, 9.6vw, 62px); letter-spacing: -.06em; }
