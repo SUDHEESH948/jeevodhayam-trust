@@ -45,8 +45,8 @@ export function VisionReveal() {
   const reduceMotion = useReducedMotion();
   let letterIndex = 0;
   const revealWords = (phrase: string, prefix: string) => phrase.split(" ").map((word, wordIndex, words) => <span className="statement-word-group" key={`${prefix}-${wordIndex}`}>{Array.from(word).map((letter, index) => {
-    const delay = letterIndex++ * 0.018;
-    return <motion.span className="statement-letter" key={`${prefix}-${wordIndex}-${index}`} initial={reduceMotion ? false : { opacity: 0, y: "0.8em", rotate: 2 }} whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, rotate: 0 }} viewport={{ once: false, amount: 0.32 }} transition={{ duration: 0.48, delay, ease: [0.22, 1, 0.36, 1] }}>{letter}</motion.span>;
+    const delay = letterIndex++ * 0.01;
+    return <motion.span className="statement-letter" key={`${prefix}-${wordIndex}-${index}`} initial={reduceMotion ? false : { opacity: 0, y: "0.8em", rotate: 2 }} whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, rotate: 0 }} viewport={{ once: false, amount: 0.32 }} transition={{ duration: 0.34, delay, ease: [0.22, 1, 0.36, 1] }}>{letter}</motion.span>;
   })}{wordIndex < words.length - 1 ? " " : ""}</span>);
 
   return <p id="vision-title" className="statement page-gutter">{revealWords("A compassionate society, where everyone lives with", "primary")}<em>{revealWords("dignity and hope.", "emphasis")}</em></p>;
