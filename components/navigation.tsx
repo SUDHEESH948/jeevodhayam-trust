@@ -34,7 +34,6 @@ export function Navigation() {
           <span className="brand-name">Jeevodhayam<small>Charitable Trust</small></span>
         </a>
         <button ref={toggleRef} className="menu-toggle" type="button" aria-expanded={open} aria-controls="primary-links" aria-label={open ? "Close navigation menu" : "Open navigation menu"} onClick={() => setOpen(value => !value)}>
-          <span className="menu-toggle-label">{open ? "Close" : "Menu"}</span>
           {open ? <X size={21} strokeWidth={1.5} /> : <Menu size={21} strokeWidth={1.5} />}
         </button>
         <div ref={panelRef} id="primary-links" className={`nav-links${open ? " is-open" : ""}`}>

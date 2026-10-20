@@ -399,8 +399,7 @@ h2 em { color: var(--forest); }
 @media (max-width: 700px) {
   .site-header.menu-is-open { color: var(--ivory); background: var(--forest-deep); box-shadow: none; backdrop-filter: none; }
   .menu-is-open .brand, .menu-is-open .menu-toggle { position: relative; z-index: 2; }
-  .menu-toggle { display: flex; align-items: center; justify-content: center; gap: 8px; width: auto; min-width: 80px; padding: 0 10px; border: 1px solid currentColor; border-radius: 30px; }
-  .menu-toggle-label { font-size: 11px; font-weight: 500; }
+  .menu-toggle { display: grid; width: 44px; min-width: 44px; padding: 0; border: 1px solid currentColor; border-radius: 50%; }
   .nav-links { position: fixed; inset: 75px 0 0; display: flex; flex-direction: column; align-items: stretch; gap: 0; padding: 32px 25px max(28px, env(safe-area-inset-bottom)); height: calc(100dvh - 75px); overflow-y: auto; overscroll-behavior: contain; background: var(--forest-deep); color: var(--ivory); visibility: hidden; opacity: 0; transform: translateY(-12px); pointer-events: none; transition: opacity .3s ease, transform .4s ease, visibility .4s; }
   .nav-links.is-open { visibility: visible; opacity: 1; transform: translateY(0); pointer-events: auto; }
   .mobile-menu-kicker { display: block; margin: 0 0 28px; color: var(--sage); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
