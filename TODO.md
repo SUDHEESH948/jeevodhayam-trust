@@ -6,7 +6,7 @@
 - Provide the “Explore Our Story ↗” CTA.
 - Add a minimal sticky navigation bar with Jeevodhayam branding, section links, and a “Support Us” button; make it responsive and usable on mobile. The mobile menu supports keyboard focus, Escape, focus cycling, outside click, and scroll locking.
 
-## 2. Our Story and What We Believe — In progress (story photography is still rendering)
+## 2. Our Story and What We Believe — Complete with verified Trust history
 - Present “Our Story” in a sophisticated asymmetrical editorial layout with a large photograph on one side, expressive typography on the other, a small “Our Story” label, and generous whitespace.
 - Use the heading “Every Life Has a Story Worth Caring For.” and a short introduction to Jeevodhayam Charitable Trust explaining its commitment to humanity and community welfare. Verified history, community partnerships, and work details remain clearly marked for later addition.
 - Create a minimal typography-led “What We Believe” section with “Compassion. Connection. Hope.”, large expressive words, elegant separators, and brief descriptions; do not use traditional icon cards.
