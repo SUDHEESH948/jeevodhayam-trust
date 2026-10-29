@@ -30,7 +30,7 @@ export function Navigation() {
     <header ref={headerRef} id="top" className={`site-header${scrolled ? " is-scrolled" : ""}${open ? " menu-is-open" : ""}`}>
       <nav className="nav-shell page-gutter" aria-label="Main navigation">
         <a className="brand" href="#top" onClick={closeMenu} aria-label="Jeevodhayam Charitable Trust, home">
-          <img className="brand-logo" src="/images/jeevodhayam-logo.png" alt="Jeevodhayam logo" />
+          <img className="brand-logo" src="/images/jeevodhayam-logo.png" alt="Jeevodhayam logo" width={44} height={44} />
           <span className="brand-name">Jeevodhayam<small>Charitable Trust</small></span>
         </a>
         <button ref={toggleRef} className="menu-toggle" type="button" aria-expanded={open} aria-controls="primary-links" aria-label={open ? "Close navigation menu" : "Open navigation menu"} onClick={() => setOpen(value => !value)}>

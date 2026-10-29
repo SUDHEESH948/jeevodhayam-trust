@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Jeevodhayam Charitable Trust | Humanity Begins With Kindness",
   description: "Together, we nurture hope, share compassion, and make meaningful differences in people's lives. Discover the story and values of Jeevodhayam Charitable Trust.",
   keywords: ["Jeevodhayam Charitable Trust", "community welfare", "humanity", "compassion", "Kerala charity"],
-  icons: { icon: "/favicon.svg" },
+  icons: { icon: "/favicon.png" },
   openGraph: {
     type: "website",
     siteName: "Jeevodhayam Charitable Trust",

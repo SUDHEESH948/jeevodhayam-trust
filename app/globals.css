@@ -43,7 +43,7 @@ main, section, .story-grid > *, .services-grid > *, .contact-layout > *, .wefive
 .site-header.is-scrolled .nav-support { border-color: rgba(24,61,50,.48); }
 .site-header.is-scrolled .nav-support:hover { color: var(--ivory); background: var(--forest); }
 .brand { display: inline-flex; align-items: center; gap: 11px; color: inherit; }
-.brand-logo { display: block; width: 44px; height: 44px; flex: 0 0 auto; border-radius: 50%; object-fit: cover; }
+.brand-logo { display: block; width: 44px; height: 44px; flex: 0 0 auto; border-radius: 50%; object-fit: cover; background: #ffffff; }
 .footer-logo { width: 54px; height: 54px; }
 .brand-symbol { position: relative; display: block; width: 26px; height: 27px; }
 .brand-symbol span { position: absolute; bottom: 1px; left: 50%; width: 13px; height: 20px; border: 1px solid currentColor; border-radius: 100% 0 100% 0; transform-origin: bottom center; }
