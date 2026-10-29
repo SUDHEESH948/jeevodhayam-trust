@@ -55,7 +55,7 @@ export default function Home() { return <><a className="skip-link" href="#main">
         </div>
       </Reveal>
       <Reveal className="wefive-milestone" delay={0.08}>
-        <span className="is-text">Gen II</span>
+        <span>1972</span>
         <div>
           <h3>2nd Generation — Upholding Values</h3>
           <p>This legacy was carried forward by the second generation, <strong>Damodaran Aachari</strong>, who upheld the family&apos;s traditions, values, and commitment to excellence.</p>
