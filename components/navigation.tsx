@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import { scrollToTop } from "@/components/effects";
 
 const links = [
   { href: "#about", label: "About Us" },
@@ -18,18 +19,70 @@ export function Navigation() {
   const toggleRef = useRef<HTMLButtonElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
   const closeMenu = () => setOpen(false);
+
+  const handleBrandClick = (event: React.MouseEvent) => {
+    event.preventDefault();
+    closeMenu();
+    scrollToTop();
+    if (window.location.hash) {
+      window.history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
+  };
+
   useEffect(() => {
     const desktop = window.matchMedia("(min-width: 701px)");
     const onResize = () => { if (desktop.matches) setOpen(false); };
     desktop.addEventListener("change", onResize);
     return () => desktop.removeEventListener("change", onResize);
   }, []);
-  useEffect(() => { const updateScrollState = () => setScrolled(window.scrollY > window.innerHeight * 0.72); updateScrollState(); window.addEventListener("scroll", updateScrollState, { passive: true }); return () => window.removeEventListener("scroll", updateScrollState); }, []);
-  useEffect(() => { if (!open) return; const previousOverflow = document.body.style.overflow; document.body.style.overflow = "hidden"; firstLinkRef.current?.focus(); const handleKeyDown = (event: KeyboardEvent) => { if (event.key === "Escape") { event.preventDefault(); setOpen(false); toggleRef.current?.focus(); return; } if (event.key !== "Tab") return; const focusable = panelRef.current?.querySelectorAll<HTMLElement>('a[href]'); if (!focusable?.length) return; const first = focusable[0], last = focusable[focusable.length - 1]; if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); } else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); } }; const handleOutsidePointer = (event: PointerEvent) => { if (event.target instanceof Node && !headerRef.current?.contains(event.target)) setOpen(false); }; document.addEventListener("keydown", handleKeyDown); document.addEventListener("pointerdown", handleOutsidePointer); return () => { document.body.style.overflow = previousOverflow; document.removeEventListener("keydown", handleKeyDown); document.removeEventListener("pointerdown", handleOutsidePointer); }; }, [open]);
+
+  useEffect(() => {
+    const updateScrollState = () => setScrolled(window.scrollY > window.innerHeight * 0.72);
+    updateScrollState();
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrollState);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    firstLinkRef.current?.focus();
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setOpen(false);
+        toggleRef.current?.focus();
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const focusable = panelRef.current?.querySelectorAll<HTMLElement>('a[href]');
+      if (!focusable?.length) return;
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    const handleOutsidePointer = (event: PointerEvent) => {
+      if (event.target instanceof Node && !headerRef.current?.contains(event.target)) setOpen(false);
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("pointerdown", handleOutsidePointer);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("pointerdown", handleOutsidePointer);
+    };
+  }, [open]);
+
   return (
-    <header ref={headerRef} id="top" className={`site-header${scrolled ? " is-scrolled" : ""}${open ? " menu-is-open" : ""}`}>
+    <header ref={headerRef} className={`site-header${scrolled ? " is-scrolled" : ""}${open ? " menu-is-open" : ""}`}>
       <nav className="nav-shell page-gutter" aria-label="Main navigation">
-        <a className="brand" href="#top" onClick={closeMenu} aria-label="Jeevodhayam Charitable Trust, home">
+        <a className="brand" href="#top" onClick={handleBrandClick} aria-label="Jeevodhayam Charitable Trust, home">
           <img className="brand-logo" src="/images/jeevodhayam-logo.png" alt="Jeevodhayam logo" width={44} height={44} />
           <span className="brand-name">Jeevodhayam<small>Charitable Trust</small></span>
         </a>

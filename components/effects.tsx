@@ -11,10 +11,51 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (reduceMotion) return;
     const lenis = new Lenis({ autoRaf: true, lerp: 0.09, anchors: true });
-    return () => lenis.destroy();
+    (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
+    return () => {
+      delete (window as unknown as { __lenis?: Lenis }).__lenis;
+      lenis.destroy();
+    };
   }, [reduceMotion]);
 
   return children;
+}
+
+export function scrollToTop() {
+  if (typeof window === "undefined") return;
+  const win = window as unknown as { __lenis?: Lenis };
+  if (win.__lenis) {
+    win.__lenis.scrollTo(0, { duration: 1.1 });
+  } else {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+}
+
+export function BackToTop({
+  className = "back-top",
+  children,
+  ariaLabel = "Back to top",
+}: {
+  className?: string;
+  children?: ReactNode;
+  ariaLabel?: string;
+}) {
+  return (
+    <a
+      className={className}
+      href="#top"
+      onClick={(e) => {
+        e.preventDefault();
+        scrollToTop();
+        if (window.location.hash) {
+          window.history.replaceState(null, "", window.location.pathname + window.location.search);
+        }
+      }}
+      aria-label={ariaLabel}
+    >
+      {children || <>Back to top</>}
+    </a>
+  );
 }
 
 export function Reveal({
